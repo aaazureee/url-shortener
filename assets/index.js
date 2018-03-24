@@ -5,7 +5,7 @@ $('.btn').click(() => {
       const content = `Your short URL<br><a href='${result.shortened_link}'>${result.shortened_link}</a>`;
       $('#root').html(content);
     })
-    .fail($('#root').html('Invalid link.'));
+    .fail(() => $('#root').html('Invalid link.'));
   $('#input').val('');
 });
 
