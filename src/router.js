@@ -4,11 +4,6 @@ import ShortLink from './models/ShortLink';
 import checkURL from './utils/checkURL';
 
 const router = express.Router();
-router.use(express.static('assets'));
-router.get('/', (req, res) => {
-  res.sendFile(__dirname + '/assets/index.html');
-});
-
 // create new shortened link in database
 router.get('/new/*', async (req, res, next) => {
   let count;

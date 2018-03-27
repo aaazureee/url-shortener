@@ -1,9 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import compression from 'compression';
 import router from './router';
 mongoose.Promise = global.Promise;
 
 const app = express();
+app.use(compression());
+app.use(express.static(__dirname + '/assets'));
 mongoose.connect('mongodb://test:test@ds123129.mlab.com:23129/link-shortener');
 mongoose.connection.once('open', () => {
   console.log('Connection has been made...');
